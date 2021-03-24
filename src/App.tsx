@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { Button } from './components/Button';
 import { MovieCard } from './components/MovieCard';
 
-// import { SideBar } from './components/SideBar';
-// import { Content } from './components/Content';
+import { SideBar } from './components/SideBar';
+import { Content } from './components/Content';
 
 import { api } from './services/api';
 
@@ -60,7 +60,10 @@ export function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <nav className="sidebar">
+
+      <SideBar genres={genres} handleClickButton={handleClickButton} selectedGenreId={selectedGenreId} />
+
+      {/*<nav className="sidebar">
         <span>Watch<p>Me</p></span>
 
         <div className="buttons-container">
@@ -75,9 +78,11 @@ export function App() {
           ))}
         </div>
 
-      </nav>
+          </nav>*/}
+        
+      <Content movies={movies} selectedGenre={selectedGenre} />
 
-      <div className="container">
+      {/*<div className="container">
         <header>
           <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
         </header>
@@ -89,7 +94,7 @@ export function App() {
             ))}
           </div>
         </main>
-      </div>
+            </div>*/}
     </div>
   )
 }
